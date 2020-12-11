@@ -222,10 +222,6 @@ ffi_call(/*@dependent@*/ ffi_cif *cif,
       break;
 #else
     case FFI_SYSV:
-      /*@-usedef@*/
-      return ffi_call_AMD64(ffi_prep_args, &ecif, cif->bytes,
-			   cif->flags, ecif.rvalue, fn);
-      /*@=usedef@*/
       break;
 #endif
 
@@ -401,7 +397,9 @@ ffi_prep_incoming_args_SYSV(char *stack, void **rvalue,
 }
 
 /* the cif must already be prep'ed */
-extern void ffi_closure_OUTER();
+extern void ffi_closure_OUTER() {
+    return;
+}
 
 ffi_status
 ffi_prep_closure_loc (ffi_closure* closure,

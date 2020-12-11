@@ -145,7 +145,7 @@ if COMPILE_LIBFFI:
         # happens to get outdated at some point in the future, you need to
         # rebuild it manually from win64.asm.
         _filenames.remove('win32.c')
-        extra_link_args.append(os.path.join(COMPILE_LIBFFI, 'win64.obj'))
+        # extra_link_args.append(os.path.join(COMPILE_LIBFFI, 'win64.obj'))
     sources.extend(os.path.join(COMPILE_LIBFFI, filename)
                    for filename in _filenames)
 else:
